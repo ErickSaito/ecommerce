@@ -15,7 +15,10 @@
   "author": "Erick Saito",
   "license": "ISC",
   "dependencies": {
+    "class-validator": "^0.13.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "sqlmigrate": "^2.1.0"
   },
   "devDependencies": {
