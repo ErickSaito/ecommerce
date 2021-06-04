@@ -57,28 +57,13 @@ class ConfigValidator implements IConfig {
   @IsString()
   SQL_PORT: string;
 
-  @IsNumber()
   SQL_POOL_MAX: number;
-
-  @IsNumber()
   SQL_POOL_MIN: number;
-
-  @IsNumber()
   SQL_POOL_IDLE: number;
-
-  @IsNumber()
   SQL_POOL_ACQUIRE: number;
-
-  @IsNumber()
   SQL_POOL_EVICT: number;
-
-  @IsNumber()
   SQL_STATEMENT_TIMEOUT: number;
-
-  @IsNumber()
   SQL_IDLE_IN_TRANSACTION_SESSION_TIMEOUT: number;
-
-  @IsString()
   SQL_CONN_STRING: string;
 }
 
