@@ -2,7 +2,7 @@ import { IProduct } from '../product/Types';
 
 export interface ISku {
   key: string;
-  inventory: string;
+  inventory: number;
   price: string;
   created_at: string;
   updated_at: string;

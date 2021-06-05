@@ -5,4 +5,6 @@ export interface ICart {
   qty: number;
   sku_key: string;
   sku: ISku;
+  created_at: string;
+  updated_at: string;
 }
