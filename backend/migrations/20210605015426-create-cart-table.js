@@ -29,7 +29,15 @@ exports.up = function(db) {
         },
         mapping: 'key'
       }
-    }
+    },
+    created_at: {
+      type: 'timestamp',
+      notNull: true,
+    },
+    updated_at: {
+      type: 'timestamp',
+      notNull: true,
+    },
   });
 };
 
