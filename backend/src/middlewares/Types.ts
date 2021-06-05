@@ -38,7 +38,6 @@ export interface Options extends AxiosRequestConfig {
 export interface ApplicationError<T = any> {
   status: number;
   type: string;
-  code: number;
   message: string;
   description: string;
   fields?: ValidationError[];

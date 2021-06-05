@@ -1,5 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
+import { CartModel } from '../cart/Model';
 import Config from '../config';
+import { ProductModel } from '../product/Model';
+import { SkuModel } from '../sku/Model';
 
 const db = new Sequelize({
   host: Config.SQL_HOST,
@@ -28,6 +31,6 @@ const db = new Sequelize({
   logging: false,
 } as any);
 
-db.addModels([]);
+db.addModels([ProductModel, SkuModel, CartModel]);
 
 export default db;

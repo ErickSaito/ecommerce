@@ -8,3 +8,8 @@ export interface IProduct {
   created_at: string;
   updated_at: string;
 }
+
+export interface IProductFilter {
+  key?: string;
+  name?: string;
+}

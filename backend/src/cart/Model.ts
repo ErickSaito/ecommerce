@@ -14,7 +14,7 @@ import { ISku } from '../sku/Types';
 import { ICart } from './Types';
 
 @Table({ modelName: 'cart' })
-export class CartModel extends Model<CartModel> implements ICart {
+export class CartModel extends Model implements ICart {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.STRING)

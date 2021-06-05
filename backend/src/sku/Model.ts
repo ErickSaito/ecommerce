@@ -14,9 +14,8 @@ import { IProduct } from '../product/Types';
 import { ISku } from './Types';
 
 @Table({ modelName: 'sku' })
-export class SkuModel extends Model<SkuModel> implements ISku {
+export class SkuModel extends Model implements ISku {
   @PrimaryKey
-  @AutoIncrement
   @Column(DataType.STRING)
   key: string;
 

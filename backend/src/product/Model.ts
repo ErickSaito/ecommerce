@@ -1,6 +1,5 @@
 import {
   AutoIncrement,
-
   Column,
   CreatedAt,
   DataType,
@@ -8,14 +7,14 @@ import {
   Model,
   PrimaryKey,
   Table,
-  UpdatedAt
+  UpdatedAt,
 } from 'sequelize-typescript';
 import { SkuModel } from '../sku/Model';
 import { ISku } from '../sku/Types';
 import { IProduct } from './Types';
 
 @Table({ modelName: 'product' })
-export class ProductModel extends Model<ProductModel> implements IProduct {
+export class ProductModel extends Model implements IProduct {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.BIGINT)
