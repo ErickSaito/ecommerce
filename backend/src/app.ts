@@ -8,6 +8,8 @@ import {
   optionsMiddleware,
   tidMiddleware,
 } from './middlewares/Middlewares';
+import { handler as productHandler } from './product/Handler';
+import './sequelize/Sequelize';
 
 export default () => initApp();
 
@@ -36,6 +38,8 @@ export function buildApp(): any {
     app.use(optionsMiddleware);
     app.use(cacheMiddleware);
     app.use(logMiddleware);
+
+    app.use('/product', productHandler());
 
     // app.use(errorHandler);
   }

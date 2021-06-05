@@ -1,6 +1,7 @@
 import { INVALID_RESOURCE, RESOURCE_NOT_FOUND } from '../error/Types';
 import { ApplicationError } from '../middlewares/Types';
 import { BaseOptions } from '../middlewares/Utils';
+import db from '../sequelize/Sequelize';
 import { ProductModel } from './Model';
 import { IProduct, IProductFilter } from './Types';
 import { validateProduct } from './Validator';
@@ -11,7 +12,10 @@ export interface ProductOptions extends BaseOptions {
 
 export type IProductService = Readonly<ReturnType<typeof ProductService>>;
 
-export const ProductService = ({ productModel = ProductModel } = {}) => {
+export const ProductService = ({
+  productModel = ProductModel,
+  database = db,
+} = {}) => {
   const service = {
     create,
     update,
@@ -69,7 +73,9 @@ export const ProductService = ({ productModel = ProductModel } = {}) => {
 
   async function findAll(options?: ProductOptions): Promise<IProduct[]> {
     const filter = options?.filter;
+    const [x, y] = await database.query('SELECT * FROM product');
 
+    console.log(x, y);
     const results = await productModel.findAll({
       ...(filter && {
         where: {

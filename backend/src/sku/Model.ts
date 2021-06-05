@@ -13,7 +13,7 @@ import { ProductModel } from '../product/Model';
 import { IProduct } from '../product/Types';
 import { ISku } from './Types';
 
-@Table({ modelName: 'sku' })
+@Table({ modelName: 'sku', freezeTableName: true })
 export class SkuModel extends Model implements ISku {
   @PrimaryKey
   @Column(DataType.STRING)

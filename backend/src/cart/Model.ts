@@ -13,7 +13,7 @@ import { SkuModel } from '../sku/Model';
 import { ISku } from '../sku/Types';
 import { ICart } from './Types';
 
-@Table({ modelName: 'cart' })
+@Table({ modelName: 'cart', freezeTableName: true })
 export class CartModel extends Model implements ICart {
   @PrimaryKey
   @AutoIncrement
