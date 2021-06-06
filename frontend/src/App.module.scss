@@ -5,7 +5,7 @@
 .contentContainer {
   background: #fff;
   overflow: auto;
-  height: 85vh;
+  height: 80vh;
 
   &::-webkit-scrollbar {
     transition: all 0.5s;
@@ -22,6 +22,12 @@
 }
 
 .header {
-  background-color: grey;
-  height: 15vh;
+  background: #fff;
+  height: 20vh;
+  img {
+    margin-top: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
