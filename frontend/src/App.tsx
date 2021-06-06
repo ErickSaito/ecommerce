@@ -10,10 +10,7 @@ import useCart from './hook/CartHook';
 
 const App: React.FC = () => {
   const cartHook = useCart();
-  const  {
-    cart, 
-    loadCart
-  } = cartHook;
+  const { cart, loadCart } = cartHook;
 
   useEffect(() => {
     loadCart(cart?.key);
@@ -30,10 +27,12 @@ const App: React.FC = () => {
                 <Divider />
               </Layout.Header>
               <Layout.Content className={styles.contentContainer}>
-                <Route exact path="/" component={PageMain} />
-                <Route path="*">
-                  <Redirect to="/" />
-                </Route>
+                <>
+                  <Route exact path="/" component={PageMain} />
+                  <Route path="*">
+                    <Redirect to="/" />
+                  </Route>
+                </>
               </Layout.Content>
             </Layout>
           </Switch>

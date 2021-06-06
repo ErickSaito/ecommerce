@@ -3,10 +3,12 @@ import { CartContext } from '../../context/CartContext';
 
 const useCartList = () => {
   const { cart } = useContext(CartContext);
-  const { cartSkus } = cart!;
+
+  const total = cart?.cartSkus?.map((c) => c.qty * c.sku.price).reduce((acc, curr) => acc + curr);
 
   return {
-    cartSkus,
+    cartSkus: cart?.cartSkus,
+    total
   };
 };
 

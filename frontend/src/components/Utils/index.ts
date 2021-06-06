@@ -3,6 +3,10 @@ export const NumberFormat = new Intl.NumberFormat('pt-BR', {
   currency: 'BRL',
 });
 
-export const formatPrice = (amount: number) => {
+export const formatPrice = (amount?: number) => {
+  if (!amount) {
+    return 0;
+  }
+
   return NumberFormat.format(amount / 100);
 };
