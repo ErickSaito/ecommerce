@@ -1214,10 +1214,10 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
-"@ericksaito/ecommerce@0.0.6":
-  version "0.0.6"
-  resolved "https://npm.pkg.github.com/download/@ericksaito/ecommerce/0.0.6/f54df92a9b3adf8a19ddaa53235b45ae1f9ccbb785d4008f85b94a97b7398c38#e30f3aef0b1eca78779710e71b2c36aa83c02210"
-  integrity sha512-8+EHtGQR4rUr58XOaXs7Bry2rC25uciG6lOhckbo/tN87C4mRXPpWMBg4TOEcQ/yGh6WG/T52TT7VrM9SwqMBA==
+"@ericksaito/ecommerce@0.0.7":
+  version "0.0.7"
+  resolved "https://npm.pkg.github.com/download/@ericksaito/ecommerce/0.0.7/8f9f87bea4c7aeba96f1e589da1f68653a8310e532f378d60c1ceabc5c72f5f6#0297c25f1f2dd63e96f114211ba4541a314a93c5"
+  integrity sha512-MAmii96xOnWuXLcXG6UVLQ94fNfaMzkbdDnY0hhyKHscEaa+pC6medx0avc8IMcF57WeEAv3wqt4R29Qck49zg==
   dependencies:
     axios "^0.18.0"
 

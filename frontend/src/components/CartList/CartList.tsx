@@ -24,11 +24,11 @@ const CartList: React.FC = () => {
           {cartSkus?.map((c) => {
             return <CartItem cartSku={c} />;
           })}
-          <Row>
-            <Col flex={1}>
+          <Row className={styles.total} justify="space-between">
+            <Col>
               <span className={styles.listText}>Total</span>
             </Col>
-            <Col flex="auto">
+            <Col>
               <span className={styles.listText}>{formatPrice(total)}</span>
             </Col>
           </Row>

@@ -4,13 +4,13 @@ import * as React from 'react';
 export interface ICartContext {
   cart?: Partial<ICart>;
   isLoading: boolean;
-  loadCart: (key?: string) => void;
+  loadCart: (key?: string) => Promise<void>;
 }
 
 export const CART_CONTEXT_DEFAULT = {
   cart: undefined,
   isLoading: false,
-  loadCart: () => undefined,
+  loadCart: () => Promise.resolve(),
 };
 
 export const CartContext =

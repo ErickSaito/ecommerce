@@ -1,14 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 const useCartList = () => {
   const { cart } = useContext(CartContext);
+  const [total, setTotal] = useState<number | undefined>(0);
 
-  const total = cart?.cartSkus?.map((c) => c.qty * c.sku.price).reduce((acc, curr) => acc + curr);
+  useEffect(() => {
+    setTotal(
+      cart?.cartSkus
+        ?.map((c) => c.qty * c.sku.price)
+        .reduce((acc, curr) => acc + curr, 0)
+    );
+  }, [cart]);
 
   return {
     cartSkus: cart?.cartSkus,
-    total
+    total,
+    setTotal,
   };
 };
 
