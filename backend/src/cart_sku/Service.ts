@@ -82,7 +82,7 @@ export const CartSkuService = ({
     }
 
     if (prev.sku.inventory < data.qty) {
-      return [undefined, CONFLICT()];
+      return [undefined, CONFLICT('Não temos mais estoque deste produto')];
     }
 
     const [, [updated]] = await cartSkuModel.update(values, {
