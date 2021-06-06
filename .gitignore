@@ -141,4 +141,8 @@ psd
 thumb
 sketch
 
+backend/sdk/*
+!*/sdk/package.json
+
+.npmrc
 # End of https://www.toptal.com/developers/gitignore/api/node,react

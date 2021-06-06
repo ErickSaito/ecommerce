@@ -9,7 +9,10 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "tslint": "tslint --project ./",
-    "migrate": "node node_modules/db-migrate/bin/db-migrate"
+    "migrate": "node node_modules/db-migrate/bin/db-migrate",
+    "sdk:tsc": "tsc -p tsconfig.sdk.json --outDir sdk",
+    "sdk:build": "find sdk/* -not -name 'package.json' -exec rm -rf {} + && yarn tslint && yarn sdk:tsc",
+    "sdk:publish": "yarn sdk:build && npm publish --registry https://npm.pkg.github.com sdk"
   },
   "keywords": [],
   "author": "Erick Saito",

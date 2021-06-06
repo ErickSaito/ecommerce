@@ -1,0 +1,14 @@
+{
+  "name": "@ericksaito/ecommerce",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Erick Saito",
+  "repository": "git://github.com/ErickSaito/ecommerce.git",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "componentRootFolder": ".",
+  "license": "SEE LICENSE IN LICENSE"
+}
