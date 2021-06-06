@@ -1,5 +1,4 @@
 import {
-  AutoIncrement,
   BelongsTo,
   Column,
   CreatedAt,

@@ -1,10 +1,8 @@
-import { ISku } from '../sku/Types';
+import { ICartSku } from '../cart_sku/Types';
 
 export interface ICart {
   key: string;
-  qty: number;
-  sku_key: string;
-  sku: ISku;
+  cartSkus: ICartSku[];
   created_at: string;
   updated_at: string;
 }

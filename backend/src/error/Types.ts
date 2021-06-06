@@ -18,3 +18,10 @@ export const INVALID_RESOURCE = (
   description: fields ? buildDescription(fields) : '',
   fields,
 });
+
+export const CONFLICT = (message?: string): ApplicationError => ({
+  status: 409,
+  type: 'CONFLICT',
+  message: message ?? 'Conflito',
+  description: 'Conflito',
+});

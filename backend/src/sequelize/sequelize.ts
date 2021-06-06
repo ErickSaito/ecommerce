@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { CartModel } from '../cart/Model';
+import { CartSkuModel } from '../cart_sku/Model';
 import Config from '../config';
 import { ProductModel } from '../product/Model';
 import { SkuModel } from '../sku/Model';
@@ -31,6 +32,6 @@ const db = new Sequelize({
   logging: false,
 } as any);
 
-db.addModels([ProductModel, SkuModel, CartModel]);
+db.addModels([ProductModel, SkuModel, CartSkuModel, CartModel]);
 
 export default db;

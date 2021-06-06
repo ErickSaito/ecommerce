@@ -1,16 +1,16 @@
 import {
   AutoIncrement,
-  BelongsTo,
   Column,
   CreatedAt,
   DataType,
+  HasMany,
   Model,
   PrimaryKey,
   Table,
   UpdatedAt,
 } from 'sequelize-typescript';
-import { SkuModel } from '../sku/Model';
-import { ISku } from '../sku/Types';
+import { CartSkuModel } from '../cart_sku/Model';
+import { ICartSku } from '../cart_sku/Types';
 import { ICart } from './Types';
 
 @Table({ modelName: 'cart', freezeTableName: true })
@@ -20,14 +20,8 @@ export class CartModel extends Model implements ICart {
   @Column(DataType.STRING)
   key: string;
 
-  @Column(DataType.INTEGER)
-  qty: number;
-
-  @Column(DataType.STRING)
-  sku_key: string;
-
-  @BelongsTo(() => SkuModel, 'sku_key')
-  sku: ISku;
+  @HasMany(() => CartSkuModel, 'cart_key')
+  cartSkus: ICartSku[];
 
   @CreatedAt
   @Column(DataType.TIME)

@@ -33,10 +33,12 @@ exports.up = function(db) {
     },
     created_at: {
       type: 'timestamp',
+      defaultValue: new String('now()'),
       notNull: true,
     },
     updated_at: {
       type: 'timestamp',
+      defaultValue: new String('now()'),
       notNull: true,
     },
   });

@@ -8,7 +8,8 @@ import {
   optionsMiddleware,
   tidMiddleware,
 } from './middlewares/Middlewares';
-import { handler as productHandler } from './product/Handler';
+import { handler as skuHandler } from './sku/Handler';
+import { handler as cartHandler } from './cart/Handler';
 import './sequelize/Sequelize';
 
 export default () => initApp();
@@ -39,7 +40,8 @@ export function buildApp(): any {
     app.use(cacheMiddleware);
     app.use(logMiddleware);
 
-    app.use('/product', productHandler());
+    app.use('/product', skuHandler());
+    app.use('/cart', cartHandler());
 
     // app.use(errorHandler);
   }

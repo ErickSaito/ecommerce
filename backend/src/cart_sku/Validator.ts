@@ -6,23 +6,23 @@ import {
 } from 'class-validator';
 import { INVALID_RESOURCE } from '../error/Types';
 import { ApplicationError } from '../middlewares/Types';
-import { IProduct } from './Types';
+import { ICartSku } from './Types';
 
-class ProductValidator implements Partial<IProduct> {
+class CartSkuValidator implements Partial<ICartSku> {
   @IsOptional()
   key: string;
 
   @IsNotEmpty()
-  name: string;
+  card_key: string;
 
   @IsNotEmpty()
-  image: string;
+  sku_key: string;
 }
 
-export function validateProduct(
-  data: Partial<IProduct>
-): [Partial<IProduct>, ApplicationError] {
-  const validator = new ProductValidator();
+export function validateCartSku(
+  data: Partial<ICartSku>
+): [Partial<ICartSku>, ApplicationError] {
+  const validator = new CartSkuValidator();
   Object.assign(validator, data);
 
   const errors: ValidationError[] = validateSync(validator, {

@@ -10,37 +10,13 @@ import {
   buildResponseResults,
   Context,
 } from '../middlewares/Utils';
-import { ProductService } from './Service';
+import { SkuService } from './Service';
 
 export function handler(): Router {
-  const service = ProductService();
+  const service = SkuService();
   const router = express.Router({ mergeParams: true });
   const middlewares = [...defaultMiddlewares, optionsMiddleware];
-  const Logger = ContextLoggerBuild('ProductHandler');
-
-  router.post(
-    '/',
-    ...middlewares,
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const ctx: Context = { log: Logger('POST /', res.locals.tid) };
-
-        const data = req.body;
-
-        const [result, err] = await service.create(data, { ctx });
-
-        const response = buildResponseData({
-          status: 201,
-          data: result,
-          err,
-        });
-
-        res.status(response.status).json(response);
-      } catch (err) {
-        next(err);
-      }
-    }
-  );
+  const Logger = ContextLoggerBuild('SkuHandler');
 
   router.put(
     '/:key',
@@ -67,30 +43,6 @@ export function handler(): Router {
     }
   );
 
-  router.delete(
-    '/:key',
-    ...middlewares,
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const ctx: Context = { log: Logger('DELETE /:key', res.locals.tid) };
-
-        const { key } = req.params;
-
-        const [count, err] = await service.destroy(key, { ctx });
-
-        const response = buildResponseData({
-          status: 200,
-          data: count,
-          err,
-        });
-
-        res.status(response.status).json(response);
-      } catch (err) {
-        next(err);
-      }
-    }
-  );
-
   router.get(
     '/',
     ...middlewares,
@@ -99,7 +51,6 @@ export function handler(): Router {
         const ctx: Context = { log: Logger('GET /', res.locals.tid) };
 
         const results = await service.findAll({
-          filter: req.query,
           ctx,
         });
 
