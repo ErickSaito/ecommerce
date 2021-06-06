@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('cart_sku', {
-    key: { type: 'bigint', primaryKey: true },
+    key: { type: 'bigint', primaryKey: true, autoIncrement: true },
     qty: { type: 'int', notNull: true, defaultValue: 0 },
     cart_key: {
       type: 'bigint',

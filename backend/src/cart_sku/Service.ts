@@ -43,9 +43,21 @@ export const CartSkuService = ({
       return [undefined, RESOURCE_NOT_FOUND(data.sku_key)];
     }
 
+    const prev = await cartSkuModel.findOne({
+      where: {
+        cart_key: data.cart_key,
+        sku_key: data.sku_key,
+      },
+    });
+
+    if (prev) {
+      return await service.update({ ...prev.toJSON(), qty: prev.qty + 1 });
+    }
+
     const created = await cartSkuModel.create(
       {
         ...validatedData,
+        qty: 1,
       },
       {
         logging: (sql) => options?.ctx?.log?.(sql),

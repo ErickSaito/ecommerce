@@ -10,11 +10,14 @@ import useCart from './hook/CartHook';
 
 const App: React.FC = () => {
   const cartHook = useCart();
-  const { loadCart } = cartHook;
+  const  {
+    cart, 
+    loadCart
+  } = cartHook;
 
   useEffect(() => {
-    loadCart();
-  }, [loadCart]);
+    loadCart(cart?.key);
+  }, []);
 
   return (
     <BrowserRouter>

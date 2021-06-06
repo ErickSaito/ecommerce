@@ -1,20 +1,29 @@
+import { ICartSku } from '@ericksaito/ecommerce/cart_sku/Types';
 import { Button, Col, Row } from 'antd';
 import React from 'react';
 import test from '../../assets/test.png';
 import { formatPrice } from '../Utils';
-import styles from './CardItem.module.scss';
+import styles from './CartItem.module.scss';
+import useCartItem from './CartItemHook';
 
-const CartItem: React.FC = () => {
+interface ICartItem {
+  cartSku: ICartSku;
+}
+
+const CartItem: React.FC<ICartItem> = ({ cartSku }) => {
+  const { quantity, setQuantity } = useCartItem(cartSku);
+  const { sku } = cartSku;
+
   return (
     <div className={styles.cardItem}>
       <Row gutter={16}>
         <Col span={4}>
-          <img src={test} alt="test" width="60" />
+          <img src={sku?.product?.image} alt={sku?.product?.name} width="60" />
         </Col>
         <Col span={16}>
           <Row className={styles.title}>
             <Col flex={2}>
-              <span>Title</span>
+              <span>{sku?.product?.name}</span>
             </Col>
             <Col flex="auto">
               <Button
@@ -32,20 +41,26 @@ const CartItem: React.FC = () => {
                 size="small"
                 type="primary"
                 className={styles.changeQtyButton}
+                onClick={() => {
+                  setQuantity(quantity - 1);
+                }}
               >
-                +
+                -
               </Button>
             </Col>
             <Col flex="20px">
-              <span>10</span>
+              <span>{quantity}</span>
             </Col>
             <Col flex="20px">
               <Button
                 size="small"
                 type="primary"
                 className={styles.changeQtyButton}
+                onClick={() => {
+                  setQuantity(quantity + 1);
+                }}
               >
-                -
+                +
               </Button>
             </Col>
             <Col>
