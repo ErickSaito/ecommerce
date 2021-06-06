@@ -19,7 +19,7 @@ export const CartClient = (baseURL: string, options?: Options) => {
       });
     },
 
-    async destroy(
+    async removeProduct(
       cart_key: string,
       cart_sku_key: string
     ): Promise<ResponseAPI<ICartSku>> {
@@ -33,7 +33,7 @@ export const CartClient = (baseURL: string, options?: Options) => {
       });
     },
 
-    async update(
+    async updateProduct(
       cart_key: string,
       cart_sku_key: string,
       data: Partial<ICartSku>
@@ -53,7 +53,7 @@ export const CartClient = (baseURL: string, options?: Options) => {
       });
     },
 
-    async create(
+    async addProduct(
       cart_key: string,
       cartSku: Partial<ICartSku>
     ): Promise<ResponseAPI<ICartSku>> {
