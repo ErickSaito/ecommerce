@@ -45,7 +45,7 @@ export const CartClient = (baseURL: string, options?: Options) => {
       return handleAxiosResponse(async () => {
         const { data } = await client({
           method: 'put',
-          url: `/card/${cart_key}/product/${cart_sku_key}`,
+          url: `/cart/${cart_key}/product/${cart_sku_key}`,
           data: _data,
         });
 
