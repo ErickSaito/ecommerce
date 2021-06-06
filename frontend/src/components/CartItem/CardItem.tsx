@@ -1,6 +1,7 @@
+import { Button, Col, Row } from 'antd';
 import React from 'react';
 import test from '../../assets/test.png';
-import { Button, Input, Row, Col } from 'antd';
+import { formatPrice } from '../Utils';
 import styles from './CardItem.module.scss';
 
 const CartItem: React.FC = () => {
@@ -8,34 +9,48 @@ const CartItem: React.FC = () => {
     <div className={styles.cardItem}>
       <Row gutter={16}>
         <Col span={4}>
-          <img src={test} alt="test" width="50" />
+          <img src={test} alt="test" width="60" />
         </Col>
         <Col span={16}>
           <Row className={styles.title}>
-            <Col flex={4}>
+            <Col flex={2}>
               <span>Title</span>
             </Col>
             <Col flex="auto">
-              <Button size="small" type="primary">
+              <Button
+                size="small"
+                type="primary"
+                className={styles.removeButton}
+              >
                 x
               </Button>
             </Col>
           </Row>
           <Row gutter={8}>
             <Col flex="20px">
-              <Button size="small" type="primary">
+              <Button
+                size="small"
+                type="primary"
+                className={styles.changeQtyButton}
+              >
                 +
               </Button>
             </Col>
-            <Col flex="60px">
-              <Input size="small" bordered={false}/>
+            <Col flex="20px">
+              <span>10</span>
             </Col>
             <Col flex="20px">
-              <Button size="small" type="primary">
+              <Button
+                size="small"
+                type="primary"
+                className={styles.changeQtyButton}
+              >
                 -
               </Button>
             </Col>
-            <span>Preco</span>
+            <Col>
+              <span>{formatPrice(1000)}</span>
+            </Col>
           </Row>
         </Col>
       </Row>

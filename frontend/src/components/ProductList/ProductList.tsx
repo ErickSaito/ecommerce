@@ -1,10 +1,10 @@
 import * as React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.scss';
-import useProductListHook from './ProductListHook';
+import useProductList from './ProductListHook';
 
 const ProductList: React.FC = () => {
-  const { products } = useProductListHook();
+  const { products } = useProductList();
   return (
     <div className={styles.productList}>
       <ul className={styles.list}>

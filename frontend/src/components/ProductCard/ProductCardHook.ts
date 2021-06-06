@@ -1,5 +1,5 @@
-import useProductListHook from '../ProductList/ProductListHook';
+const useProductCard = () => {
+  console.log('');
+};
 
-const useProductCardHook = () => {};
-
-export default useProductListHook;
+export default useProductCard;

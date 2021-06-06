@@ -1,7 +1,23 @@
+@import '../../styles/commons.scss';
+
 .cardItem {
-  margin: 16px 0;
+  margin: 24px 0;
 
   .title {
     margin-bottom: 8px;
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .changeQtyButton {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+
+  .removeButton {
+    background-color: gray;
+    border-color: gray;
+    border-radius: 50%;
   }
 }

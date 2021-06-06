@@ -2,7 +2,7 @@ import { ISku } from '@ericksaito/ecommerce/sku/Types';
 import { useEffect, useState } from 'react';
 import SkuClient from '../../client/SkuClient';
 
-const useProductListHook = () => {
+const useProductList = () => {
   const [products, setProducts] = useState<ISku[] | undefined>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -23,4 +23,4 @@ const useProductListHook = () => {
   };
 };
 
-export default useProductListHook;
+export default useProductList;
