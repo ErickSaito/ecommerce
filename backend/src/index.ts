@@ -1,5 +1,3 @@
-const world = 'world';
+import { SkuClient } from './sku/Client';
 
-export function hello(word: string = world): string {
-  return `Hello ${world}! `;
-}
+export { SkuClient };

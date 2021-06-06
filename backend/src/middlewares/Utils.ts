@@ -1,11 +1,5 @@
 import { Response } from 'express-serve-static-core';
-import { get as _get } from 'lodash';
-import {
-  ApplicationError,
-  ResponseAPI,
-  ResponseAPIV2,
-  ResponseMetadata,
-} from './Types';
+import { ApplicationError, ResponseAPI, ResponseMetadata } from './Types';
 
 export const PAGE_SIZE = 25;
 
@@ -67,18 +61,7 @@ export function sendResponseResults<T, E extends ApplicationError>(
     return response.status(body.status).json(body);
   }
 
-  const { results } = body;
-  const { count, offset = 0 } = body.metadata;
-
-  const rangeStr = offset ? `${offset}-${offset + results.length}` : '*';
-  const countStr = count ? String(count) : '*';
-  const contentRange = `items ${rangeStr}/${countStr}`;
-
-  return response
-    .set('Access-Control-Expose-Headers', 'Content-Range')
-    .set('Content-Range', contentRange)
-    .status(body.status)
-    .json(body);
+  return response.status(body.status).json(body);
 }
 
 export async function handleAxiosResponse(
@@ -99,46 +82,6 @@ export async function handleAxiosResponse(
       error: err,
     };
   }
-}
-
-export async function handleAxiosResponseV2(
-  fn: () => Promise<any>
-): Promise<ResponseAPIV2<any, any>> {
-  try {
-    return await fn();
-  } catch (err) {
-    if (err?.response?.data?.status) {
-      return err.response.data;
-    }
-
-    return {
-      status: err.response.status,
-      success: false,
-      error: err,
-    } as ResponseAPIV2;
-  }
-}
-
-export interface IPagination {
-  offset: number;
-  limit: number;
-}
-
-export const getOptions = (options) => {
-  return options && options.filter
-    ? options
-    : {
-        filter: {},
-      };
-};
-
-export function getPagination(options?: BaseOptions): IPagination {
-  const offset = Number(_get(options, 'offset')) || 0;
-  const limit = Number(_get(options, 'limit')) || PAGE_SIZE;
-  return {
-    offset,
-    limit,
-  };
 }
 
 export type Limit = number;

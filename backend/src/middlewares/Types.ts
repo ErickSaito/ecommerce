@@ -12,16 +12,6 @@ export interface ResponseAPI<T = any, E = any> {
   links?: any;
 }
 
-export interface ResponseAPIV2<T = any, E = ApplicationError> {
-  status: number;
-  success: boolean;
-  metadata?: ResponseMetadata;
-  links?: any;
-  data: T;
-  results: T[];
-  error?: E;
-}
-
 export interface ResponseMetadata {
   count: number;
   offset: number;
