@@ -4,7 +4,7 @@ import { CartSkuService } from '../cart_sku/Service';
 import { ContextLoggerBuild } from '../log/Logger';
 import {
   defaultMiddlewares,
-  optionsMiddleware,
+  optionsMiddleware
 } from '../middlewares/Middlewares';
 import { buildResponseData, Context } from '../middlewares/Utils';
 import { CartService } from './Service';
@@ -15,30 +15,6 @@ export function handler(): Router {
   const router = express.Router({ mergeParams: true });
   const middlewares = [...defaultMiddlewares, optionsMiddleware];
   const Logger = ContextLoggerBuild('CartSkuHandler');
-
-  router.post(
-    '/',
-    ...middlewares,
-    async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const ctx: Context = { log: Logger('POST /', res.locals.tid) };
-
-        const data = req.body;
-
-        const [result, err] = await cartService.create({ ctx });
-
-        const response = buildResponseData({
-          status: 201,
-          data: result,
-          err,
-        });
-
-        res.status(response.status).json(response);
-      } catch (err) {
-        next(err);
-      }
-    }
-  );
 
   router.get(
     '/:key',
