@@ -1,17 +1,19 @@
 import { ICart } from '@ericksaito/ecommerce/cart/Types';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import CartClient from '../client/CartClient';
 
-const useCart = () => {
-  const [cart, setCart] = useState<ICart | undefined>();
+const useCart = (key?: string) => {
+  const [cart, setCart] = useState<ICart>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  async function loadCart(key?: string) {
+  const loadCart = useCallback(async () => {
     setIsLoading(true);
-    const { data } = await CartClient.findByKey(key);
-    setCart(data);
+    if (!cart) {
+      const { data } = await CartClient.findByKey(key);
+      setCart(data);
+    }
     setIsLoading(false);
-  }
+  }, [key, cart]);
 
   return {
     isLoading,

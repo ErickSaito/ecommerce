@@ -45,8 +45,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.14.2",
     "@types/react-router-dom": "^5.1.7",
     "prettier": "2.3.0",
     "tslint-config-prettier": "^1.18.0"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-optional-chaining"
+    ]
   }
 }
