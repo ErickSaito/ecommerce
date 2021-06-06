@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   return db.createTable('cart', {
-    key: { type: 'bigint', primaryKey: true },
+    key: { type: 'bigint', primaryKey: true, autoIncrement: true },
     created_at: {
       type: 'timestamp',
       defaultValue: new String('now()'),

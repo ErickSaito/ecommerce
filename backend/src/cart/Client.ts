@@ -8,7 +8,7 @@ export const CartClient = (baseURL: string, options?: Options) => {
   const client = axiosClient(baseURL, options);
 
   return {
-    async findByKey(key: string): Promise<ResponseAPI<ICart>> {
+    async findByKey(key?: string): Promise<ResponseAPI<ICart>> {
       return handleAxiosResponse(async () => {
         return (
           await client({

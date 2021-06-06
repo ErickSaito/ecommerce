@@ -13,7 +13,7 @@ class CartSkuValidator implements Partial<ICartSku> {
   key: string;
 
   @IsNotEmpty()
-  card_key: string;
+  cart_key: string;
 
   @IsNotEmpty()
   sku_key: string;

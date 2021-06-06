@@ -30,7 +30,7 @@ exports.up = function(db) {
         mapping: 'key'
       }
     },
-    sku: {
+    sku_key: {
       type: 'string',
       notNull: true,
       foreignKey: {
@@ -56,7 +56,7 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
-  return db.dropTable('cart');
+  return db.dropTable('cart_sku');
 };
 exports._meta = {
   "version": 1

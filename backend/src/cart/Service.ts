@@ -29,6 +29,10 @@ export const CartService = ({ cartModel = CartModel } = {}) => {
     key: string,
     options?: BaseOptions
   ): Promise<[ICart, ApplicationError]> {
+    if (!key || key === 'undefined') {
+      return await service.create(options);
+    }
+
     const result = await cartModel.findByPk(key, {
       include: [
         {

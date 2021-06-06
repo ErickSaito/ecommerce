@@ -28,7 +28,7 @@ export class CartSkuModel extends Model implements ICartSku {
   @Column(DataType.STRING)
   cart_key: string;
 
-  @BelongsTo(() => CartModel, 'card_key')
+  @BelongsTo(() => CartModel, 'cart_key')
   cart: ICart;
 
   @Column(DataType.STRING)
