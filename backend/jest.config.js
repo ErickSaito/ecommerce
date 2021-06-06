@@ -16,30 +16,10 @@ module.exports = {
 
   preset: 'ts-jest',
 
-  // A path to a module which exports an async function that is triggered once before all test suites
-  globalSetup: '<rootDir>/src/test/setup.js',
-  setupFilesAfterEnv: ['<rootDir>/src/test/jest.setup.js'],
-
-  // A path to a module which exports an async function that is triggered once after all test suites
-  // globalTeardown: null,
-
-  // A set of global variables that need to be available in all test environments
-  globals: {
-    NODE_ENV: 'test',
-    'ts-jest': {
-      // babelConfig: true,
-      isolatedModules: true,
-    },
-  },
-
-  // Reset the module registry before running each individual test
   resetModules: true,
 
   // The root directory that Jest should scan for tests and modules within
   roots: ['<rootDir>/src'],
-
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/src/test/jestSetup.ts'],
 
   // The test environment that will be used for testing
   testEnvironment: 'node',
