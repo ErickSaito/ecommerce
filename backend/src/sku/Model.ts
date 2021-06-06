@@ -25,7 +25,7 @@ export class SkuModel extends Model implements ISku {
   inventory: number;
 
   @Column(DataType.BIGINT)
-  price: string;
+  price: number;
 
   @BelongsTo(() => ProductModel, 'product_key')
   product: IProduct;
