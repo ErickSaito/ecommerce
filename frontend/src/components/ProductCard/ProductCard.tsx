@@ -4,7 +4,7 @@ import { Card, Avatar } from 'antd';
 const ProductCard: React.FC = () => {
   return (
     <Card
-      style={{ width: 150 }}
+      size="small"
       cover={
         <img
           alt="example"

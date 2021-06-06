@@ -1,14 +1,21 @@
 import * as React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.scss';
+import useProductListHook from './ProductListHook';
 
 const ProductList: React.FC = () => {
+  const { products } = useProductListHook();
   return (
     <div className={styles.productList}>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      <ul className={styles.list}>
+        {products?.map((p) => {
+          return (
+            <li>
+              <ProductCard />
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
